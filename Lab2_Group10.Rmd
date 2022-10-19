@@ -1,0 +1,11 @@
+---
+title: "Lab2_Group10"
+author: "Guanyu Zou Wanni Lei Jiefei Hu"
+date: "2022-10-19"
+output: html_document
+---
+
+```{r}
+
+```
+
