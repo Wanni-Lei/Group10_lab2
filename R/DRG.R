@@ -19,3 +19,26 @@ boxplot <- function(y){
 
 boxplot("Average.Total.Payments")
 boxplot("Average.Covered.Charges")
+
+
+## function2
+statistics<- function(x){
+
+  if(x=="mean"){
+    table <-drg_data %>%
+      summarise(mean = mean(Average.Medicare.Payments))
+    table
+  }
+  else if (x=="median"){
+    table <-drg_data %>%
+      summarise(median = median(Average.Medicare.Payments))
+    table
+  } else{
+    table <-drg_data %>%
+      summarise(SD = sd(Average.Medicare.Payments))
+
+    table
+  }
+}
+
+statistics("sd")
