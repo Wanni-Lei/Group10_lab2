@@ -5,6 +5,32 @@ date: "2022-10-19"
 output: html_document
 ---
 
+## Load in required library
+```{r}
+library(readr)
+library(tidyverse)
+DRG_data <- read_csv("C:/Users/HP/Desktop/DRG_data.csv")
+```
+
+## Function 1: Write a function that makes a boxplot of payments by DRG code. Make it an option for your function to do this for either the average Medicare payments, the average total payment, or the average covered charges.
+
+### Solutions:
+```{r}
+names(DRG_data)[12] = "Average_Medicare_payments"
+gg <- function(payment) {
+  DRG_data %>%
+    ggplot(aes(y=payment,x=DRG_data)) +
+    geom_boxplot(color = blues9) +
+    labs(x = "DRG_Code",
+         y = "Payment",
+         title = "Boxplot of Payemnt by DRG Code") 
+}
+
+gg(DRG_data$Average_Medicare_payments)
+```
+## Function 2: Write a function that calculates statistics over all of the DRG codes for average Medicare payments. Make it an option in your function to calculate either the mean, median, or standard deviation of the DRG codes.
+
+### Solutions:
 ```{r}
 
 ```
