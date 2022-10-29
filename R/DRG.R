@@ -22,9 +22,9 @@ library(tidyverse)
 boxplot <- function(y){
 
   sample_data %>%
-    select(drg_code, y=y) %>%
+    select(drg_code, y=y) %>% # select DRG code and payment for next step drawing
     ggplot(mapping = aes(x= drg_code, y = y) )+ #  Make three payment as an option for function
-    geom_boxplot()+
+    geom_boxplot()+ # draw the boxplot
     scale_x_discrete(guide = guide_axis(check.overlap = TRUE))+
     labs(x = "DRG code",
          y = "Payments",
@@ -52,16 +52,16 @@ statistics<- function(x){
 
   if(x=="mean"){
     table <- sample_data %>%
-      summarise(mean = mean(Average.Medicare.Payments))
+      summarise(mean = mean(Average.Medicare.Payments)) # calculate the mean
     table
   }
   else if (x == "median"){
     table <- sample_data %>%
-      summarise(median = median(Average.Medicare.Payments))
+      summarise(median = median(Average.Medicare.Payments)) # calculate the median
     table
   } else{
     table <- sample_data %>%
-      summarise(SD = sd(Average.Medicare.Payments))
+      summarise(SD = sd(Average.Medicare.Payments)) # calculate the SD
 
     table
   }
