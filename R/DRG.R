@@ -8,7 +8,9 @@ boxplot <- function(y){
     select(drg_code, y=y) %>%
     ggplot(mapping = aes(x= drg_code, y = y) )+ #  Make three payment as an option for function
     geom_boxplot()+
-    scale_x_discrete(guide = guide_axis(check.overlap = TRUE))+
+    #scale_x_discrete(guide = guide_axis(check.overlap = TRUE))+
+    theme_minimal() + theme(axis.text.x = element_text(size = 5,
+                                                       angle = 90), legend.position = "none")
     labs(x = "DRG code",
          y = "Payments",
          title = "Boxplot of payments by DRG code")  ## rename x, y axis and title
